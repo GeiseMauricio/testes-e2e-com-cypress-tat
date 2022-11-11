@@ -12,9 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm install
+      run: npx install
     - name: Run ESLint
-      run: npm run lint
+      run: npx run lint
   cypress-tests-desktop:
     needs: eslint
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
           CYPRESS_MAILOSAUR_SERVER_ID: ${{ secrets.CYPRESS_MAILOSAUR_SERVER_ID }}
           CYPRESS_MAILOSAUR_API_KEY: ${{ secrets.CYPRESS_MAILOSAUR_API_KEY }}
         with:
-          command: npm test
+          command: npx test
   cypress-tests-tablet:
     needs: eslint
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
         with:
-          command: npm run test:tablet
+          command: npx run test:tablet
